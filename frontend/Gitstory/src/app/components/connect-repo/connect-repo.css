@@ -1,10 +1,9 @@
-/* Page background */
 .connect-repo-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #c6bdaa, #cfba90, #d1a05c); /* warm gradient */
+  background: linear-gradient(135deg, #b9664f, #cfba90, #ee602c); /* warm gradient */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -50,15 +49,15 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  border-color: #d18b3c; /* stronger orange focus */
-  box-shadow: 0 0 0 3px rgba(209, 128, 60, 0.2);
+  border-color: #c94f1a; /* red accent for focus */
+  box-shadow: 0 0 0 3px rgba(201, 79, 26, 0.2);
 }
 
 button {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   border: none;
-  background-color: #d18b3c; /* warm orange button */
+  background-color: #c94f1a; /* strong red button */
   color: #fff8f0; /* light text */
   cursor: pointer;
   border-radius: 0 6px 6px 0;
@@ -66,7 +65,7 @@ button {
 }
 
 button:hover {
-  background-color: #b76f2a; /* darker orange on hover */
+  background-color: #a43d15; /* deeper red on hover */
 }
 
 /* Helper text & messages */
@@ -81,6 +80,6 @@ button:hover {
 }
 
 .loading {
-  color: #d18b3c; /* warm orange for loading */
+  color: #c94f1a; /* use red accent instead of orange */
   margin-top: 0.5rem;
 }
