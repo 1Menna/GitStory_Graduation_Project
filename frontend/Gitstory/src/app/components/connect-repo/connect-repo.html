@@ -1,0 +1,22 @@
+<div class="connect-repo-wrapper">
+  <div class="connect-card">
+    <h1>GitStory</h1>
+    <p class="subtitle">Turn your GitHub commits into meaningful stories</p>
+
+    <div class="input-group">
+      <input
+        type="text"
+        placeholder="Enter GitHub Repository URL"
+        [(ngModel)]="repoUrl"
+      />
+      <button (click)="analyzeRepo()">Analyze Repo</button>
+    </div>
+
+    <p class="helper-text">
+      Enter a public GitHub repository URL to start analyzing its commit history.
+    </p>
+
+    <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+    <div *ngIf="loading" class="loading">Analyzing repository...</div>
+  </div>
+</div>

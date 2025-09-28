@@ -1,0 +1,28 @@
+/* Navbar wrapper */
+.navbar {
+  background-color: #fff3e6; /* same cream as card background */
+  padding: 1rem 2rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Navbar links container */
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Links */
+.nav-item.nav-link {
+  color: #5b3e1f; /* deep brown for text */
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.nav-item.nav-link:hover {
+  color: #d18b3c; /* warm orange on hover */
+  cursor: pointer;
+}
