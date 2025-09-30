@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CommitsService {
 
-  private apiUrl = 'http://localhost:8080/analyze'; // replace with your API
+  private apiUrl = 'http://localhost:8080/api/commits/import'; // replace with your API
 
   constructor(private _HttpClient:HttpClient){}
 
