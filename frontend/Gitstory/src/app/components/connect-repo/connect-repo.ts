@@ -13,29 +13,38 @@ import { CommitsService } from '../../services/commits-service';
 })
 export class ConnectRepo {
   repoUrl: string = '';
+  startDate: string = '';
+  endDate: string = '';
   errorMsg: string = '';
   loading: boolean = false;
 
-  // Inject your CommitsService
-  constructor(private _commitsService:  CommitsService) {}
+  constructor(private _commitsService: CommitsService) {}
 
   analyzeRepo() {
     this.errorMsg = '';
+
     if (!this.repoUrl || !this.isValidGithubUrl(this.repoUrl)) {
       this.errorMsg = 'Please enter a valid GitHub repository URL.';
       return;
     }
 
+    if (!this.startDate || !this.endDate) {
+      this.errorMsg = 'Please select both start and end dates.';
+      return;
+    }
+
     this.loading = true;
 
-    // Use mt Commits_Service to send URL to back 
-    this._commitsService.analyzeRepo(this.repoUrl).subscribe({
+    this._commitsService.analyzeRepo(this.repoUrl, this.startDate, this.endDate).subscribe({
       next: (res: any) => {
-        console.log(res); // handle backend response
+        console.log(res.message);
         alert(`Repository ${this.repoUrl} analyzed successfully!`);
         this.repoUrl = '';
+        this.startDate = '';
+        this.endDate = '';
         this.loading = false;
-      },
+      }
+      ,
       error: (err) => {
         console.error(err);
         this.errorMsg = 'Error analyzing repository. Please try again.';

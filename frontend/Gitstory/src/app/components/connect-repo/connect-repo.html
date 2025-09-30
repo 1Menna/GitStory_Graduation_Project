@@ -1,19 +1,36 @@
 <div class="connect-repo-wrapper">
   <div class="connect-card">
-    <h1 style="color:  #f85706;">GitStory</h1>
+    <h1>GitStory</h1>
     <p class="subtitle">Turn your GitHub commits into meaningful stories</p>
 
+    <!-- Repo URL -->
     <div class="input-group">
+      <label for="repoUrl">Repository URL</label>
       <input
+        id="repoUrl"
         type="text"
-        placeholder="Enter GitHub Repository URL"
+        placeholder="https://github.com/user/repo.git"
         [(ngModel)]="repoUrl"
       />
-      <button (click)="analyzeRepo()">Analyze Repo</button>
     </div>
 
+    <!-- Dates -->
+    <div class="date-row">
+      <div class="input-group">
+        <label for="startDate">Start Date</label>
+        <input id="startDate" type="date" [(ngModel)]="startDate" />
+      </div>
+      <div class="input-group">
+        <label for="endDate">End Date</label>
+        <input id="endDate" type="date" [(ngModel)]="endDate" />
+      </div>
+    </div>
+
+    <!-- Button -->
+    <button class="analyze-btn" (click)="analyzeRepo()">Analyze Repo</button>
+
     <p class="helper-text">
-      Enter a public GitHub repository URL to start analyzing its commit history.
+      Enter a public GitHub repository URL and date range to start analyzing its commit history.
     </p>
 
     <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>

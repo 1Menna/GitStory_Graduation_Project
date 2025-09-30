@@ -6,6 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -19,14 +22,20 @@ public class CommitController {
     }
 
     @PostMapping("/import")
-    public ResponseEntity<String> importRepo(@RequestBody RepoRequest request) {
+    public ResponseEntity<Map<String, String>> importRepo(@RequestBody RepoRequest request) {
         commitService.importCommitsFromRepoUrl(
                 request.getRepoUrl(),
                 request.getStartDate(),
                 request.getEndDate()
         );
-        return ResponseEntity.ok("Imported commits from: " + request.getRepoUrl());
+
+        // Create a JSON object with a "message" field
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Imported commits from: " + request.getRepoUrl());
+
+        return ResponseEntity.ok(response); // Return JSON instead of plain text
     }
+
 
     @GetMapping("/all")
     public List<CommitDTO> getAllCommits() {

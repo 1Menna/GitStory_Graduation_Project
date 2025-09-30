@@ -6,12 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CommitsService {
+  private apiUrl = 'http://localhost:8080/api/commits/import';
 
-  private apiUrl = 'http://localhost:8080/api/commits/import'; // replace with your API
+  constructor(private _HttpClient: HttpClient) {}
 
-  constructor(private _HttpClient:HttpClient){}
-
-  analyzeRepo(repoUrl: string): Observable<any> {
-    return this._HttpClient.post(this.apiUrl, { repoUrl });
+  analyzeRepo(repoUrl: string, startDate: string, endDate: string): Observable<any> {
+    const body = {
+      repoUrl: repoUrl,
+      startDate: startDate,
+      endDate: endDate
+    };
+    return this._HttpClient.post(this.apiUrl, body);
   }
 }
