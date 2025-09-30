@@ -1,14 +1,11 @@
 package com.project.gitstory_back.Controller;
 
-
 import com.project.gitstory_back.Dto.CommitDTO;
-import com.project.gitstory_back.Models.Commit;
 import com.project.gitstory_back.Service.CommitService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -21,10 +18,13 @@ public class CommitController {
         this.commitService = commitService;
     }
 
-
     @PostMapping("/import")
     public ResponseEntity<String> importRepo(@RequestBody RepoRequest request) {
-        commitService.importCommitsFromRepoUrl(request.getRepoUrl());
+        commitService.importCommitsFromRepoUrl(
+                request.getRepoUrl(),
+                request.getStartDate(),
+                request.getEndDate()
+        );
         return ResponseEntity.ok("Imported commits from: " + request.getRepoUrl());
     }
 
@@ -33,10 +33,18 @@ public class CommitController {
         return commitService.getAllCommitDTOs();
     }
 
-
     public static class RepoRequest {
         private String repoUrl;
+        private String startDate;
+        private String endDate;
+
         public String getRepoUrl() { return repoUrl; }
         public void setRepoUrl(String repoUrl) { this.repoUrl = repoUrl; }
+
+        public String getStartDate() { return startDate; }
+        public void setStartDate(String startDate) { this.startDate = startDate; }
+
+        public String getEndDate() { return endDate; }
+        public void setEndDate(String endDate) { this.endDate = endDate; }
     }
 }

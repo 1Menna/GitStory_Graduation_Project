@@ -23,15 +23,25 @@ public class CommitService {
         this.commitRepository = commitRepository;
     }
 
-
-    public void importCommitsFromRepoUrl(String repoUrl) {
+    public void importCommitsFromRepoUrl(String repoUrl, String startDate, String endDate) {
         try {
+            commitRepository.deleteAll();
 
             String repoPath = repoUrl.replace("https://github.com/", "").replace(".git", "");
-            String apiUrl = "https://api.github.com/repos/" + repoPath + "/commits";
+
+            StringBuilder apiUrl = new StringBuilder("https://api.github.com/repos/" + repoPath + "/commits");
+            boolean hasQuery = false;
+
+            if (startDate != null && !startDate.isEmpty()) {
+                apiUrl.append(hasQuery ? "&" : "?").append("since=").append(startDate);
+                hasQuery = true;
+            }
+            if (endDate != null && !endDate.isEmpty()) {
+                apiUrl.append(hasQuery ? "&" : "?").append("until=").append(endDate);
+            }
 
             RestTemplate restTemplate = new RestTemplate();
-            String response = restTemplate.getForObject(apiUrl, String.class);
+            String response = restTemplate.getForObject(apiUrl.toString(), String.class);
 
             JsonNode root = objectMapper.readTree(response);
 
@@ -52,9 +62,10 @@ public class CommitService {
         }
     }
 
-
     public List<CommitDTO> getAllCommitDTOs() {
-        return commitRepository.findAll().stream().map(this::toDTO).collect(Collectors.toList());
+        return commitRepository.findAll().stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
 
     private CommitDTO toDTO(Commit c) {
