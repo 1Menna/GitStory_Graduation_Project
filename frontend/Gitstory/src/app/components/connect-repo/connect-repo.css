@@ -29,7 +29,6 @@ h1 {
   font-size: 1rem;
 }
 
-/* Input fields with labels */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -43,7 +42,6 @@ h1 {
   margin-bottom: 0.3rem;
 }
 
-/* Repo URL + Date inputs */
 input[type="text"],
 input[type="date"] {
   padding: 0.75rem 1rem;
@@ -61,14 +59,12 @@ input[type="date"]:focus {
   box-shadow: 0 0 0 3px rgba(201, 79, 26, 0.2);
 }
 
-/* Put dates side by side */
 .date-row {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-/* Button */
 .analyze-btn {
   width: 100%;
   padding: 0.75rem 1.5rem;
@@ -86,7 +82,6 @@ input[type="date"]:focus {
   background-color: #a43d15;
 }
 
-/* Helper & messages */
 .helper-text {
   font-size: 0.85rem;
   color: #8c6a45;
@@ -100,4 +95,19 @@ input[type="date"]:focus {
 .loading {
   color: #c94f1a;
   margin-top: 0.5rem;
+}
+
+.success {
+  color: #28a745;
+  margin-top: 0.5rem;
+}
+
+.success a {
+  margin-left: 1rem;
+  color: #28a745;
+  text-decoration: underline;
+}
+
+.success a:hover {
+  color: #1e7e34;
 }

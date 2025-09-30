@@ -29,11 +29,17 @@
     <!-- Button -->
     <button class="analyze-btn" (click)="analyzeRepo()">Analyze Repo</button>
 
+    <!-- Helper Text -->
     <p class="helper-text">
       Enter a public GitHub repository URL and date range to start analyzing its commit history.
     </p>
 
-    <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+    <!-- Messages -->
     <div *ngIf="loading" class="loading">Analyzing repository...</div>
+    <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+    <div *ngIf="successMsg" class="success">
+      {{ successMsg }}
+      <a class="nav-item nav-link" [routerLink]="'/Stories'" routerLinkActive="active-link">Go to Stories</a>
+    </div>
   </div>
 </div>

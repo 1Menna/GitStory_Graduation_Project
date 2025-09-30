@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CommitsService } from '../../services/commits-service';
- // make sure path is correct
+import { CommitsService } from '../../services/commits-service'; // make sure path is correct
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-connect-repo',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
   templateUrl: './connect-repo.html',
   styleUrls: ['./connect-repo.css']
 })
@@ -17,11 +17,13 @@ export class ConnectRepo {
   endDate: string = '';
   errorMsg: string = '';
   loading: boolean = false;
+  successMsg: string = ''; // success message
 
   constructor(private _commitsService: CommitsService) {}
 
   analyzeRepo() {
     this.errorMsg = '';
+    this.successMsg = ''; // reset success on new submission
 
     if (!this.repoUrl || !this.isValidGithubUrl(this.repoUrl)) {
       this.errorMsg = 'Please enter a valid GitHub repository URL.';
@@ -37,14 +39,12 @@ export class ConnectRepo {
 
     this._commitsService.analyzeRepo(this.repoUrl, this.startDate, this.endDate).subscribe({
       next: (res: any) => {
-        console.log(res.message);
-        alert(`Repository ${this.repoUrl} analyzed successfully!`);
+        this.successMsg = `Repository analyzed successfully!`;
         this.repoUrl = '';
         this.startDate = '';
         this.endDate = '';
         this.loading = false;
-      }
-      ,
+      },
       error: (err) => {
         console.error(err);
         this.errorMsg = 'Error analyzing repository. Please try again.';
