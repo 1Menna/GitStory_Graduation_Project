@@ -64,9 +64,11 @@ public class CommitService {
 
     public List<CommitDTO> getAllCommitDTOs() {
         return commitRepository.findAll().stream()
+                .sorted((c1, c2) -> c1.getCommitDate().compareTo(c2.getCommitDate())) // oldest first
                 .map(this::toDTO)
                 .collect(Collectors.toList());
     }
+
 
     private CommitDTO toDTO(Commit c) {
         CommitDTO dto = new CommitDTO();
