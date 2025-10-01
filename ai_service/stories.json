@@ -1,53 +1,46 @@
 [
   {
-    "storyId": 2,
-    "title": "Account",
-    "commits": [
-      "my-account",
-      "Fund Transfer",
-      "Show account in Transfer",
-      "fixed transfer funds problem",
-      "my-account **",
-      "fixed transfer fund implementation\nfixed transaction displaying for current user"
-    ]
-  },
-  {
-    "storyId": 1,
-    "title": "Readme",
-    "commits": [
-      "Merge branch 'master' of https://github.com/1Menna/Banking-System-App_-Banque-Misr-GP",
-      "fixed local storage saving and adjusted the lazy loading",
-      "adjusted status filter",
-      "Make transaction details popup",
-      "Style Changes in search and transaction details",
-      "Update README.md",
-      "Removed some comments and added readme\n\nall done !"
-    ]
-  },
-  {
     "storyId": 0,
-    "title": "Footer",
+    "title": "Date",
     "commits": [
-      "edit footer",
-      "remove footer",
-      "added x sign in  the edit or add user"
+      "first commit",
+      "Merge remote-tracking branch 'origin/main'",
+      "added start date and end date",
+      "design: add start date and end date"
     ]
   },
   {
-    "storyId": 3,
-    "title": "Delete",
+    "storyId": 2,
+    "title": "Navbar",
     "commits": [
-      "delete",
-      "delete button",
-      "delete(2)"
+      "finished Navbar and Connect Repo Components",
+      " add logo in Navbar"
     ]
   },
   {
     "storyId": 4,
-    "title": "Login",
+    "title": "Commits",
     "commits": [
-      "login data",
-      "updata login"
+      "Add backend project",
+      "sort all commits",
+      "backend: make API fetch all commits"
+    ]
+  },
+  {
+    "storyId": 1,
+    "title": "Stories",
+    "commits": [
+      "add cross origin",
+      "design: add in successfully analyzing link to stories",
+      "Add files via upload\n\nAI Service : clustering with KMeans and expose stories via FastAPI",
+      "design: get stories and display them"
+    ]
+  },
+  {
+    "storyId": 3,
+    "title": "Backend",
+    "commits": [
+      "backend: make when post url, return json not text"
     ]
   }
 ]

@@ -1,13 +1,32 @@
-<div *ngIf="loading">Loading stories...</div>
-<div *ngIf="error">{{ error }}</div>
+<div *ngIf="loading" class="d-flex flex-column align-items-center mt-4">
+  <div class="spinner-border text-warning mb-2" role="status"></div>
+  <p>Loading stories...</p>
+</div>
 
-<div *ngIf="!loading && stories.length">
-  <div *ngFor="let story of stories" class="story-card">
-    <h2>{{ story.title }}</h2>
-    <ul>
-      <li *ngFor="let commit of story.commits">{{ commit }}</li>
-    </ul>
+<div *ngIf="error" class="alert alert-danger text-center my-3">
+  {{ error }}
+</div>
+
+<div *ngIf="!loading && stories.length" class="container my-4">
+  <div class="row g-4">
+    <div *ngFor="let story of stories" class="col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0">
+        <!-- Title -->
+        <div class="card-header story-header text-white fw-bold fs-5 text-center">
+          {{ story.title }}
+        </div>
+
+        <!-- Commits -->
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let commit of story.commits" class="list-group-item">
+            <i class="bi bi-git"></i> {{ commit }}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
-<div *ngIf="!loading && !stories.length">No stories found.</div>
+<div *ngIf="!loading && !stories.length" class="text-center text-muted mt-4">
+  <p>No stories found.</p>
+</div>

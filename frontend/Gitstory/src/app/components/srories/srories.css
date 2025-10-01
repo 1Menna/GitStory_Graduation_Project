@@ -1,17 +1,40 @@
-.story-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-  background-color: #f9f9f9;
+/* Card Header with custom color */
+.story-header {
+  background-color: #f0956e !important;
+  border-top-left-radius: 0.75rem !important;
+  border-top-right-radius: 0.75rem !important;
 }
 
-.story-card h2 {
-  margin-bottom: 8px;
+/* Commit list styling */
+.list-group-item {
+  font-size: 0.95rem;
   color: #333;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.story-card ul {
-  list-style-type: disc;
-  padding-left: 20px;
+/* Zebra effect (striped rows) */
+.list-group-item:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+.list-group-item:nth-child(even) {
+  background-color: #f9dfd7;
+}
+
+/* Last row no border */
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* Card hover effect */
+.card {
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
