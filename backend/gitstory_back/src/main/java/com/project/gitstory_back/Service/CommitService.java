@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.gitstory_back.Dto.CommitDTO;
 import com.project.gitstory_back.Models.Commit;
 import com.project.gitstory_back.Repository.CommitRepository;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,42 +22,64 @@ public class CommitService {
     private final CommitRepository commitRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+    @Value("${github.token}")
+    private String githubToken;
+
     public CommitService(CommitRepository commitRepository) {
         this.commitRepository = commitRepository;
     }
 
     public void importCommitsFromRepoUrl(String repoUrl, String startDate, String endDate) {
         try {
+
             commitRepository.deleteAll();
 
             String repoPath = repoUrl.replace("https://github.com/", "").replace(".git", "");
-
-            StringBuilder apiUrl = new StringBuilder("https://api.github.com/repos/" + repoPath + "/commits");
-            boolean hasQuery = false;
-
-            if (startDate != null && !startDate.isEmpty()) {
-                apiUrl.append(hasQuery ? "&" : "?").append("since=").append(startDate);
-                hasQuery = true;
-            }
-            if (endDate != null && !endDate.isEmpty()) {
-                apiUrl.append(hasQuery ? "&" : "?").append("until=").append(endDate);
-            }
-
             RestTemplate restTemplate = new RestTemplate();
-            String response = restTemplate.getForObject(apiUrl.toString(), String.class);
 
-            JsonNode root = objectMapper.readTree(response);
+            int page = 1;
+            boolean hasMore = true;
 
-            for (JsonNode node : root) {
-                Commit commit = new Commit();
-                commit.setCommitHash(node.get("sha").asText());
-                commit.setMessage(node.get("commit").get("message").asText());
-                commit.setAuthor(node.get("commit").get("author").get("name").asText());
-                commit.setCommitDate(node.get("commit").get("author").get("date").asText());
-                commit.setEmbedding(null);
-                commit.setClusterId(null);
+            while (hasMore) {
+                StringBuilder apiUrl = new StringBuilder("https://api.github.com/repos/" + repoPath + "/commits");
+                apiUrl.append("?per_page=100&page=").append(page);
 
-                commitRepository.save(commit);
+                if (startDate != null && !startDate.isEmpty()) {
+                    apiUrl.append("&since=").append(startDate);
+                }
+                if (endDate != null && !endDate.isEmpty()) {
+                    apiUrl.append("&until=").append(endDate);
+                }
+
+                HttpHeaders headers = new HttpHeaders();
+                headers.set("Authorization", "token " + githubToken);
+                HttpEntity<String> entity = new HttpEntity<>(headers);
+
+                ResponseEntity<String> response = restTemplate.exchange(
+                        apiUrl.toString(),
+                        HttpMethod.GET,
+                        entity,
+                        String.class
+                );
+
+                JsonNode root = objectMapper.readTree(response.getBody());
+
+                if (root.isEmpty()) {
+                    hasMore = false;
+                } else {
+                    for (JsonNode node : root) {
+                        Commit commit = new Commit();
+                        commit.setCommitHash(node.get("sha").asText());
+                        commit.setMessage(node.get("commit").get("message").asText());
+                        commit.setAuthor(node.get("commit").get("author").get("name").asText());
+                        commit.setCommitDate(node.get("commit").get("author").get("date").asText());
+                        commit.setEmbedding(null);
+                        commit.setClusterId(null);
+
+                        commitRepository.save(commit);
+                    }
+                    page++;
+                }
             }
 
         } catch (Exception e) {
