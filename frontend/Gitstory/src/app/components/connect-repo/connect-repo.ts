@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommitsService } from '../../services/commits-service'; // make sure path is correct
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Stories } from '../srories/srories';
 
 @Component({
   selector: 'app-connect-repo',
@@ -44,6 +45,9 @@ export class ConnectRepo {
         this.startDate = '';
         this.endDate = '';
         this.loading = false;
+
+        // notify that stories have been updated
+        this._commitsService.notifyStoriesUpdated();
       },
       error: (err) => {
         console.error(err);
@@ -51,6 +55,7 @@ export class ConnectRepo {
         this.loading = false;
       }
     });
+
   }
 
   isValidGithubUrl(url: string): boolean {

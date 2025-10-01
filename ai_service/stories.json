@@ -1,0 +1,53 @@
+[
+  {
+    "storyId": 2,
+    "title": "Account",
+    "commits": [
+      "my-account",
+      "Fund Transfer",
+      "Show account in Transfer",
+      "fixed transfer funds problem",
+      "my-account **",
+      "fixed transfer fund implementation\nfixed transaction displaying for current user"
+    ]
+  },
+  {
+    "storyId": 1,
+    "title": "Readme",
+    "commits": [
+      "Merge branch 'master' of https://github.com/1Menna/Banking-System-App_-Banque-Misr-GP",
+      "fixed local storage saving and adjusted the lazy loading",
+      "adjusted status filter",
+      "Make transaction details popup",
+      "Style Changes in search and transaction details",
+      "Update README.md",
+      "Removed some comments and added readme\n\nall done !"
+    ]
+  },
+  {
+    "storyId": 0,
+    "title": "Footer",
+    "commits": [
+      "edit footer",
+      "remove footer",
+      "added x sign in  the edit or add user"
+    ]
+  },
+  {
+    "storyId": 3,
+    "title": "Delete",
+    "commits": [
+      "delete",
+      "delete button",
+      "delete(2)"
+    ]
+  },
+  {
+    "storyId": 4,
+    "title": "Login",
+    "commits": [
+      "login data",
+      "updata login"
+    ]
+  }
+]
