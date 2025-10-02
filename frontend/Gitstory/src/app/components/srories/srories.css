@@ -1,40 +1,180 @@
-/* Card Header with custom color */
-.story-header {
-  background-color: #f0956e !important;
-  border-top-left-radius: 0.75rem !important;
-  border-top-right-radius: 0.75rem !important;
+/* Page Wrapper */
+.page-wrapper {
+  background: linear-gradient(135deg, #1b263b, #415a77);
+  min-height: 100vh;
+  padding: 2rem 0;
 }
 
-/* Commit list styling */
-.list-group-item {
-  font-size: 0.95rem;
-  color: #333;
-  padding: 0.75rem 1rem;
+
+/* Page Header */
+.page-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.loading-container p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.3rem;
+}
+
+/* Error State */
+.error-alert {
+  background-color: rgba(220, 53, 69, 0.9);
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
 }
 
-/* Zebra effect (striped rows) */
-.list-group-item:nth-child(odd) {
-  background-color: #fafafa;
+/* Main Container */
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.list-group-item:nth-child(even) {
-  background-color: #f9dfd7;
+/* Story Card */
+.story-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Last row no border */
-.list-group-item:last-child {
+.story-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Card Header */
+.story-header {
+  background: linear-gradient(135deg, #9aa2b3, #92989d);
+  color:  #1b263b;
+  padding: 1.5rem 1.25rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-align: center;
+  border: none;
+  box-shadow: 0 2px 8px rgba(240, 149, 110, 0.3);
+}
+
+/* Commits Container */
+.commits-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Commit List */
+.commit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.commit-item {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.commit-item:hover {
+  background-color: #f8f9fa;
+}
+
+.commit-item:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.commit-item:nth-child(even) {
+  background-color: #fef8f6;
+}
+
+.commit-item:last-child {
   border-bottom: none;
 }
 
-/* Card hover effect */
-.card {
-  border-radius: 0.75rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.commit-item i {
+  color: #f0956e;
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+.commit-text {
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* Empty State */
+.empty-state {
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .story-card {
+    margin-bottom: 1.5rem;
+  }
+
+  .page-wrapper {
+    padding: 1.5rem 0;
+  }
 }

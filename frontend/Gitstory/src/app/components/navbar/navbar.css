@@ -1,8 +1,8 @@
 /* Navbar wrapper */
 .navbar {
-  background-color: #fff3e6; /* soft cream */
+  background-color: #f8faff; /* very light blue/white */
   padding: 1rem 2rem;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Navbar links container */
@@ -14,21 +14,26 @@
 
 /* Links */
 .nav-item.nav-link {
-  color: #4b2e17; /* darker warm brown for contrast */
+  color: #1b263b; /* navy */
   font-weight: 500;
   text-decoration: none;
   font-size: 1.05rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
 }
 
 /* Hover effect */
 .nav-item.nav-link:hover {
-  color: #f85706; /* same orange as logo */
+  background-color: #e2e8f0; /* subtle hover */
+  color: #0d1b2a;
   cursor: pointer;
 }
-/* active link */
+
+/* Active link */
 .active-link {
-  background-color: #f0956e !important;
-  color: white !important;
-  border-radius: 5px;
+  background-color: #1b263b !important; /* navy */
+  color: #ffffff !important;
+  border-radius: 6px;
+  font-weight: 600;
 }

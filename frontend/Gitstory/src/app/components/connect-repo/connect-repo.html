@@ -1,45 +1,48 @@
 <div class="connect-repo-wrapper">
   <div class="connect-card">
-    <h1>GitStory</h1>
-    <p class="subtitle">Turn your GitHub commits into meaningful stories</p>
-
-    <!-- Repo URL -->
-    <div class="input-group">
-      <label for="repoUrl">Repository URL</label>
-      <input
-        id="repoUrl"
-        type="text"
-        placeholder="https://github.com/user/repo.git"
-        [(ngModel)]="repoUrl"
-      />
+    <!-- Top Header -->
+    <div class="connect-header">
+      <h1>Sprint Sight</h1>
+      <p class="subtitle">Evaluate your sprint code performance</p>
     </div>
 
-    <!-- Dates -->
-    <div class="date-row">
+    <!-- Body (form + messages) -->
+    <div class="connect-body">
+      <!-- Repo URL -->
       <div class="input-group">
-        <label for="startDate">Start Date</label>
-        <input id="startDate" type="date" [(ngModel)]="startDate" />
+        <label for="repoUrl">Repository URL</label>
+        <input
+          id="repoUrl"
+          type="text"
+          placeholder="https://github.com/user/repo.git"
+          [(ngModel)]="repoUrl"
+        />
       </div>
-      <div class="input-group">
-        <label for="endDate">End Date</label>
-        <input id="endDate" type="date" [(ngModel)]="endDate" />
+
+      <!-- Dates -->
+      <div class="date-row">
+        <div class="input-group">
+          <label for="startDate">Start Date</label>
+          <input id="startDate" type="date" [(ngModel)]="startDate" />
+        </div>
+        <div class="input-group">
+          <label for="endDate">End Date</label>
+          <input id="endDate" type="date" [(ngModel)]="endDate" />
+        </div>
       </div>
-    </div>
 
-    <!-- Button -->
-    <button class="analyze-btn" (click)="analyzeRepo()">Analyze Repo</button>
+      <!-- Analyze Button -->
+      <button class="analyze-btn" (click)="analyzeRepo()">Analyze Repo</button>
 
-    <!-- Helper Text -->
-    <p class="helper-text">
-      Enter a public GitHub repository URL and date range to start analyzing its commit history.
-    </p>
-
-    <!-- Messages -->
-    <div *ngIf="loading" class="loading">Analyzing repository...</div>
-    <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
-    <div *ngIf="successMsg" class="success">
-      {{ successMsg }}
-      <a class="nav-item nav-link" [routerLink]="'/Stories'" routerLinkActive="active-link">Go to Stories</a>
+      <!-- Messages -->
+      <div class="messages">
+        <div *ngIf="loading" class="loading">Analyzing repository...</div>
+        <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+        <div *ngIf="successMsg" class="success">
+          {{ successMsg }}
+          <a class="stories-btn" [routerLink]="'/Stories'" routerLinkActive="active-link">Go to Stories</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

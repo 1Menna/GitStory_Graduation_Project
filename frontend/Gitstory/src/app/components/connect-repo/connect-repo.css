@@ -1,113 +1,159 @@
+/* Page Wrapper */
 .connect-repo-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #b9664f, #cfba90, #ee602c);
+  background: linear-gradient(135deg, #1b263b, #415a77);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
 }
 
+/* Glassmorphism Card */
 .connect-card {
-  background-color: #fff8f0;
-  padding: 2rem 3rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  width: 90%;
+  max-width: 900px;
+  min-height: 350px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Header */
+.connect-header {
   text-align: center;
-  width: 100%;
-  max-width: 500px;
+  margin-bottom: 1.5rem;
 }
 
-h1 {
-  font-size: 2.5rem;
-  color: #f85706;
+.connect-header h1 {
+  font-size: 2.2rem;
+  color: #ffffff;
   margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-.subtitle {
-  color: #8c6a45;
-  margin-bottom: 2rem;
+.connect-header .subtitle {
+  color: #dbe2ef;
   font-size: 1rem;
 }
 
+/* Body */
+.connect-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Inputs */
 .input-group {
   display: flex;
   flex-direction: column;
-  text-align: left;
   margin-bottom: 1rem;
 }
 
 .input-group label {
-  font-size: 0.85rem;
-  color: #5b3e1f;
+  font-size: 0.9rem;
+  color: #dbe2ef;
   margin-bottom: 0.3rem;
 }
 
 input[type="text"],
 input[type="date"] {
   padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
-  border: 2px solid #d4b77d;
-  border-radius: 6px;
-  outline: none;
-  background-color: #fff3e6;
-  color: #5b3e1f;
+  color: #0d1b2a;
+  transition: all 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="date"]:focus {
-  border-color: #c94f1a;
-  box-shadow: 0 0 0 3px rgba(201, 79, 26, 0.2);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(27, 38, 59, 0.3);
 }
 
+/* Dates row */
 .date-row {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
 }
 
+/* Analyze Button */
 .analyze-btn {
-  width: 100%;
-  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  padding: 0.85rem 1.5rem;
   font-size: 1rem;
   border: none;
-  background-color: #c94f1a;
-  color: #fff8f0;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1b263b, #415a77);
   cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-  margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
 .analyze-btn:hover {
-  background-color: #a43d15;
+  background: linear-gradient(135deg, #0d1b2a, #273348);
+  transform: translateY(-2px);
 }
 
-.helper-text {
-  font-size: 0.85rem;
-  color: #8c6a45;
+/* Messages wrapper */
+.messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
 }
 
+/* Messages */
 .error {
-  color: #c94f1a;
+  color: #ff4d4d;
   margin-top: 0.5rem;
+  font-weight: 500;
+  text-align: center;
 }
 
 .loading {
-  color: #c94f1a;
+  color: #07142e; /* navy blue */
   margin-top: 0.5rem;
+  text-align: center;
 }
 
 .success {
-  color: #28a745;
+  color: #28a745; /* green */
   margin-top: 0.5rem;
+  font-weight: 500;
+  text-align: center;
 }
 
-.success a {
-  margin-left: 1rem;
-  color: #28a745;
-  text-decoration: underline;
+/* Styled button for Go to Stories (below success message) */
+.stories-btn {
+  display: block; /* puts it on new line */
+  margin: 0.75rem auto 0 auto; /* top spacing and center */
+  padding: 0.65rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #28a745; /* same as success message */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
-.success a:hover {
-  color: #1e7e34;
+.stories-btn:hover {
+  background-color: #218838; /* darker green */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }

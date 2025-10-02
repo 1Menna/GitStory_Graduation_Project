@@ -1,32 +1,39 @@
-<div *ngIf="loading" class="d-flex flex-column align-items-center mt-4">
-  <div class="spinner-border text-warning mb-2" role="status"></div>
-  <p>Loading stories...</p>
-</div>
+<div class="page-wrapper">
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner-border text-primary mb-2" role="status"></div>
+    <p>Loading stories...</p>
+  </div>
 
-<div *ngIf="error" class="alert alert-danger text-center my-3">
-  {{ error }}
-</div>
+  <!-- Error Message -->
+  <div *ngIf="error" class="error-alert text-center my-3">
+    {{ error }}
+  </div>
 
-<div *ngIf="!loading && stories.length" class="container my-4">
-  <div class="row g-4">
-    <div *ngFor="let story of stories" class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-sm border-0">
-        <!-- Title -->
-        <div class="card-header story-header text-white fw-bold fs-5 text-center">
-          {{ story.title }}
+  <!-- Stories -->
+  <div *ngIf="!loading && stories.length" class="main-container my-4">
+    <div class="row g-4">
+      <div *ngFor="let story of stories" class="col-md-6 col-lg-4">
+        <div class="story-card h-100">
+          <!-- Title -->
+          <div class="story-header text-center">
+            {{ story.title }}
+          </div>
+
+          <!-- Commits -->
+          <ul class="commit-list">
+            <li *ngFor="let commit of story.commits" class="commit-item">
+              <i class="bi bi-git"></i>
+              <span class="commit-text">{{ commit }}</span>
+            </li>
+          </ul>
         </div>
-
-        <!-- Commits -->
-        <ul class="list-group list-group-flush">
-          <li *ngFor="let commit of story.commits" class="list-group-item">
-            <i class="bi bi-git"></i> {{ commit }}
-          </li>
-        </ul>
       </div>
     </div>
   </div>
-</div>
 
-<div *ngIf="!loading && !stories.length" class="text-center text-muted mt-4">
-  <p>No stories found.</p>
+  <!-- Empty State -->
+  <div *ngIf="!loading && !stories.length" class="empty-state">
+    <p>No stories found.</p>
+  </div>
 </div>
