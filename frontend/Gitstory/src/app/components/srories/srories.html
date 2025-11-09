@@ -12,9 +12,9 @@
 
   <!-- Stories -->
   <div *ngIf="!loading && stories.length" class="main-container my-4">
-    <div class="row g-4">
-      <div *ngFor="let story of stories" class="col-md-6 col-lg-4">
-        <div class="story-card h-100">
+    <div class="story-list">
+      <div *ngFor="let story of stories" class="story-wrapper">
+        <div class="story-card">
           <!-- Title -->
           <div class="story-header text-center">
             {{ story.title }}

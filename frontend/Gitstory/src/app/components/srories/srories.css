@@ -1,10 +1,9 @@
 /* Page Wrapper */
 .page-wrapper {
-  background: linear-gradient(135deg, #1b263b, #415a77);
+  background: linear-gradient(90deg, #171F6E, #FEFEFE);
   min-height: 100vh;
   padding: 2rem 0;
 }
-
 
 /* Page Header */
 .page-header {
@@ -55,23 +54,38 @@
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-weight: 500;
 }
 
 /* Main Container */
 .main-container {
-  max-width: 1400px;
+  max-width: 1000px;   /* keep cards from stretching too wide */
   margin: 0 auto;
   padding: 0 1rem;
 }
 
+/* Story List */
+.story-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* space between cards */
+}
+
+/* Story Wrapper */
+.story-wrapper {
+  width: 100%;
+}
+
 /* Story Card */
 .story-card {
+  width: 100%;
   background: white;
   border-radius: 1rem;
   overflow: hidden;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -83,8 +97,8 @@
 
 /* Card Header */
 .story-header {
-  background: linear-gradient(135deg, #9aa2b3, #92989d);
-  color:  #1b263b;
+  background: #1b263b;
+  color: white;
   padding: 1.5rem 1.25rem;
   font-weight: 600;
   font-size: 1.15rem;
