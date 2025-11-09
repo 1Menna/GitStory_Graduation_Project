@@ -1,79 +1,78 @@
 [
   {
-    "storyId": 4,
-    "title": "Commit",
+    "storyId": 0,
+    "title": "Tailwind",
     "commits": [
-      "Initial commit",
-      "Initial Commit",
-      "Anonymize",
-      "New significance testing",
-      "metrics_final -> metrics",
-      "adjust config files",
-      "remove longformer experiments",
-      "Merge branch 'main' of github.com:kris927b/SkillSpan into main",
-      "remove device flag.",
-      "Change file name for evaluation results.",
-      "Remove unused split line.",
-      "updated datasets",
-      "Delete .DS_Store"
+      "test",
+      "tailwind_downloaded",
+      "react_icons_downloaded",
+      "temain-tailwind",
+      "material-tailwind-downloaded",
+      "react-router-downloaded",
+      "create_page_Home",
+      "create_component_Header",
+      "add_some_pages",
+      "-",
+      "add_some_routes",
+      "Footer_component",
+      "Header_Component_Completed",
+      "Footer_Component_Completed",
+      "convert_existing <a> to <Link>",
+      "Movies & Series Completed",
+      "updated_footer",
+      "Completed_Home_Page",
+      "adding_loading",
+      "completed_details_movies",
+      "completed_details_series",
+      "add_SignIn_SignUp_for_backend_use",
+      "extend_home",
+      "completed_About_page",
+      "Create vercel.json",
+      "Delete back-end/YAT directory",
+      "Create main.yml",
+      "nn"
     ]
   },
   {
     "storyId": 2,
-    "title": "Update",
+    "title": "Clean",
     "commits": [
-      "Update README.md",
-      "Update knowledge.json",
-      "Update knowledge_doc.json",
-      "Update multi.json",
-      "Update multi_doc.json",
-      "Update skills.json",
-      "Update skills_doc.json",
-      "Uncapitalize Skills Knowledge Multi",
-      "update machamp",
-      "update readme and scripts",
-      "Merge pull request #17 from kris927b/new-machamp\n\nUpdate MaChAmp submodule, modify training and prediction scripts, modify README"
-    ]
-  },
-  {
-    "storyId": 3,
-    "title": "Add",
-    "commits": [
-      "add new paths for conll files.",
-      "Add data to repository.",
-      "Modify evaluation script for models.",
-      "Make run.all run till predictions.",
-      "Add script to run predictions on all sets.",
-      "Add examples for arguments.",
-      "add data as json files",
-      "add new running scripts and config files, renamed some folders.",
-      "change README, add new paths to scripts"
-    ]
-  },
-  {
-    "storyId": 0,
-    "title": "Edit",
-    "commits": [
-      "edit config files for last layer",
-      "edit logs path",
-      "edit path of models",
-      "Edit readme for examples in each script."
+      "clean react",
+      "clean App.css",
+      "clean index.css",
+      "clean App.jsx"
     ]
   },
   {
     "storyId": 1,
-    "title": "Fix",
+    "title": "Signup",
     "commits": [
-      "switch gold/preds paths.",
-      "Modify pahts of evaluate and predict scripts.",
-      "fix some issues with the dataset",
-      "Create LICENSE",
-      "fix data formatting",
-      "fix ill-formed sentences",
-      "Merge pull request #13 from ribenamaplesyrup/main\n\nMinor fix for ill-formed rows in training data",
-      "Fix: Create data/preds/$MODEL before writing outputs in run.predict.sh",
-      "Merge pull request #18 from YoussefMorad1/main\n\nFix: Create data/preds/$MODEL before writing outputs in run.predict.sh",
-      "update run.predict.sh to make folder first and fix broken link."
+      "Completed Signin && SignUp",
+      "removed signin&signup icon",
+      "removed signin&signup pages",
+      "Update README.md",
+      "Update SignIn.jsx",
+      "Update SignUp.jsx",
+      "Update Signup.jsx"
+    ]
+  },
+  {
+    "storyId": 3,
+    "title": "Habiba",
+    "commits": [
+      "Merge pull request #1 from 1Menna/master\n\ntitle",
+      "Merge pull request #2 from 1Menna/Habiba\n\nMerge pull request #1 from 1Menna/master",
+      "Merge branch 'master' of https://github.com/1Menna/Movies_Website into Habiba",
+      "Merge branch 'master' into Habiba",
+      "Merge pull request #5 from 1Menna/Habiba\n\nHabiba"
+    ]
+  },
+  {
+    "storyId": 4,
+    "title": "Add",
+    "commits": [
+      "Add files via upload",
+      "Merge pull request #4 from 1Menna/Nada\n\nAdd files via upload"
     ]
   }
 ]
