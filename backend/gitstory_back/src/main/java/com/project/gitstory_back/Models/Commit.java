@@ -1,6 +1,5 @@
 package com.project.gitstory_back.Models;
 
-
 import jakarta.persistence.*;
 import java.util.UUID;
 
@@ -22,17 +21,22 @@ public class Commit {
 
     private String commitDate;
 
-
     @Column(columnDefinition = "text")
     private String embedding;
 
     @Column(name = "cluster_id")
     private Integer clusterId;
 
-    // Constructors
+    @Column(name = "commit_type")
+    private String commitType;
+
+    @Column(name = "story_title")
+    private String storyTitle;
+
     public Commit() {}
 
-    // Getters & setters
+    // getters & setters
+
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }
 
@@ -48,9 +52,15 @@ public class Commit {
     public String getCommitDate() { return commitDate; }
     public void setCommitDate(String commitDate) { this.commitDate = commitDate; }
 
-    public String  getEmbedding() { return embedding; }
-    public void setEmbedding(String  embedding) { this.embedding = embedding; }
+    public String getEmbedding() { return embedding; }
+    public void setEmbedding(String embedding) { this.embedding = embedding; }
 
     public Integer getClusterId() { return clusterId; }
     public void setClusterId(Integer clusterId) { this.clusterId = clusterId; }
+
+    public String getCommitType() { return commitType; }
+    public void setCommitType(String commitType) { this.commitType = commitType; }
+
+    public String getStoryTitle() { return storyTitle; }
+    public void setStoryTitle(String storyTitle) { this.storyTitle = storyTitle; }
 }

@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
-
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/commits")
@@ -29,19 +28,29 @@ public class CommitController {
                 request.getEndDate()
         );
 
-        // Create a JSON object with a "message" field
         Map<String, String> response = new HashMap<>();
         response.put("message", "Imported commits from: " + request.getRepoUrl());
-
-        return ResponseEntity.ok(response); // Return JSON instead of plain text
+        return ResponseEntity.ok(response);
     }
-
 
     @GetMapping("/all")
     public List<CommitDTO> getAllCommits() {
         return commitService.getAllCommitDTOs();
     }
 
+    @PostMapping("/classify")
+    public ResponseEntity<String> classifyCommits() {
+        commitService.classifyAllCommits();
+        return ResponseEntity.ok("All commits classified successfully.");
+    }
+    @GetMapping("/schema")
+    public ResponseEntity<Map<String, Map<String, List<String>>>> getCommitSchema() {
+        Map<String, Map<String, List<String>>> schema = commitService.generateCommitStorySchema();
+        return ResponseEntity.ok(schema);
+    }
+
+
+    // Inner class for request payload
     public static class RepoRequest {
         private String repoUrl;
         private String startDate;

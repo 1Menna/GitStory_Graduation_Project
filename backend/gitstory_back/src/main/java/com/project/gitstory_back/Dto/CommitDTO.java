@@ -1,6 +1,5 @@
 package com.project.gitstory_back.Dto;
 
-
 import java.util.UUID;
 
 public class CommitDTO {
@@ -9,9 +8,10 @@ public class CommitDTO {
     private String message;
     private String author;
     private String commitDate;
+    private String commitType;
+    private String storyTitle;
 
     public CommitDTO() {}
-
 
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }
@@ -27,4 +27,10 @@ public class CommitDTO {
 
     public String getCommitDate() { return commitDate; }
     public void setCommitDate(String commitDate) { this.commitDate = commitDate; }
+
+    public String getCommitType() { return commitType; }
+    public void setCommitType(String commitType) { this.commitType = commitType; }
+
+    public String getStoryTitle() { return storyTitle; }
+    public void setStoryTitle(String storyTitle) { this.storyTitle = storyTitle; }
 }
