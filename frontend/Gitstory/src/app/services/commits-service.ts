@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { StoryContent } from '../Interfaces/story-content';
+import { IStory } from '../Interfaces/IStory';
 
 export interface Story {
   storyId: number;
@@ -16,8 +20,27 @@ export class CommitsService {
 
   constructor(private http: HttpClient) {}
 
-  getStories(): Observable<Story[]> {
-    return this.http.get<Story[]>('http://127.0.0.1:8001/stories');
+   getStories(): Observable<IStory[]> {
+    return this.http.get<any>('http://localhost:8080/api/commits/schema').pipe(
+      map(res => {
+        const stories: IStory[] = [];
+        for (const [title, content] of Object.entries(res)) {
+          // Type assertion لأن Object.entries يرجع [string, unknown][]
+          const storyContent = content as StoryContent;
+
+          // Flatten all commits
+          const commits: string[] = [];
+          Object.values(storyContent).forEach((arr: string[]) => commits.push(...arr));
+
+          stories.push({
+            title,
+            commitsByType: storyContent,
+            commits
+          });
+        }
+        return stories;
+      })
+    );
   }
 
   analyzeRepo(repoUrl: string, startDate: string, endDate: string): Observable<any> {

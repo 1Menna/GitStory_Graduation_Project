@@ -1,38 +1,34 @@
 <div class="page-wrapper">
-  <!-- Loading Spinner -->
   <div *ngIf="loading" class="loading-container">
     <div class="spinner-border text-primary mb-2" role="status"></div>
     <p>Loading stories...</p>
   </div>
 
-  <!-- Error Message -->
   <div *ngIf="error" class="error-alert text-center my-3">
     {{ error }}
   </div>
 
-  <!-- Stories -->
   <div *ngIf="!loading && stories.length" class="main-container my-4">
     <div class="story-list">
       <div *ngFor="let story of stories" class="story-wrapper">
         <div class="story-card">
-          <!-- Title -->
-          <div class="story-header text-center">
-            {{ story.title }}
-          </div>
+          <div class="story-header text-center">{{ story.title }}</div>
 
-          <!-- Commits -->
-          <ul class="commit-list">
-            <li *ngFor="let commit of story.commits" class="commit-item">
-              <i class="bi bi-git"></i>
-              <span class="commit-text">{{ commit }}</span>
-            </li>
-          </ul>
+          <!-- Display commits grouped by type -->
+          <div *ngFor="let type of storyTypes(story)">
+            <h5>{{ type }}</h5>
+            <ul class="commit-list">
+              <li *ngFor="let commit of story.commitsByType[type]" class="commit-item">
+                <i class="bi bi-git"></i>
+                <span class="commit-text">{{ commit }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Empty State -->
   <div *ngIf="!loading && !stories.length" class="empty-state">
     <p>No stories found.</p>
   </div>
